@@ -76,7 +76,7 @@ export default function ResizeInput({ matrixIndex }: { matrixIndex: number }) {
       };
       handleChangeOutputSolution(newOutput);
       setStep([...step, newStep]);
-      setSize(`${newOutput[0].length}x${newOutput.length}`);
+      setSize(`${newOutput[matrixIndex][0].length}x${newOutput[matrixIndex].length}`);
     }
   }
 
