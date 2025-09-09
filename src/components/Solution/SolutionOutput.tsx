@@ -4,7 +4,7 @@ import { Layer, Rect, Stage } from "react-konva";
 import { COLOR_MAP, UNIT, type DIGIT } from "../../const";
 import { type Position } from "../../types/position";
 import { isBetweenPosition } from "../../utils/isBetween";
-import { cloneDeep, set } from "lodash"
+import { cloneDeep } from "lodash"
 import { boundaryFill } from "../../utils/boundaryFill";
 import { projectRect } from "../../utils/projectRect";
 import type { CopyStep, FillStep, FlipStep, ProjectStep, RotateStep } from "../../types/step";
@@ -348,7 +348,7 @@ export default function SolutionOutput({ outputIndex }: { outputIndex: number })
                   }
               }}}}
               onMouseOver={() => { if (startPosition && !endPosition) setCurrentPosition({ x: j, y: i, source: 'output', matrixIndex: outputIndex }) }}
-              opacity={!selectedCell?.isCopied && selectedCell.position?.source === 'output' && startPosition && currentPosition && isBetweenPosition(startPosition, currentPosition, { x: j, y: i, source: 'output', matrixIndex: outputIndex }) ? 0.5 : 1}
+              opacity={!selectedCell?.isCopied && selectedCell.position?.source === 'output' && startPosition && ( currentPosition && isBetweenPosition(startPosition, currentPosition, { x: j, y: i, source: 'output', matrixIndex: outputIndex }) || endPosition && isBetweenPosition(startPosition, endPosition, { x: j, y: i, source: 'output', matrixIndex: outputIndex })) ? 0.5 : 1}
             />
           ))
         )}
