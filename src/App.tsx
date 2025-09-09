@@ -63,7 +63,7 @@ function App() {
               handleChangeChoosenTrainingId(newValue);
               setStep([]);
               setIsCorrect(null);
-              handleChangeOutputSolution(Array.from({ length: newValue ? (trainingData?.[newValue].test.length || 1) : 1 }, () => DEFAULT_SOLUTION_MATRIX) as [Array<Array<DIGIT>>]);
+              handleChangeOutputSolution(Array.from({ length: newValue ? (trainingData?.[newValue].test.length || 1) : 1 }, () => DEFAULT_SOLUTION_MATRIX));
             }}
             renderInput={(params) => <TextField {...params} label="Select Training ID" />}
           />

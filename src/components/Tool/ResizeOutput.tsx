@@ -135,11 +135,13 @@ export default function ResizeInput({ matrixIndex }: { matrixIndex: number }) {
     handleChangeOutputSolution(newOutput);
   }
 
-  const handleReset = () => {
-    const newOutputSolution = cloneDeep(outputSolution);
-    newOutputSolution[matrixIndex] = cloneDeep(DEFAULT_SOLUTION_MATRIX);
+  const handleReset = () => { // Reset every output matrix, for minor changes, undo/redo is recommended
+    // const newOutputSolution = cloneDeep(outputSolution);
+    // newOutputSolution[matrixIndex] = cloneDeep(DEFAULT_SOLUTION_MATRIX);
+    const newOutputSolution = Array.from({ length: outputSolution.length || 1 }, () => DEFAULT_SOLUTION_MATRIX);
     handleChangeOutputSolution(newOutputSolution);
-    // setStep([]);
+    setSize('3x3');
+    // setStep([]); //
   }
 
   
